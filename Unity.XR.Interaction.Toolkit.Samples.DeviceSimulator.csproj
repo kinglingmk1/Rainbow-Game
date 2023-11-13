@@ -56,8 +56,8 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Samples\XR Interaction Toolkit\2.3.2\XR Device Simulator\Scripts\XRDeviceSimulatorUI.cs" />
     <Compile Include="Assets\Samples\XR Interaction Toolkit\2.3.2\XR Device Simulator\Scripts\XRDeviceSimulatorControllerUI.cs" />
+    <Compile Include="Assets\Samples\XR Interaction Toolkit\2.3.2\XR Device Simulator\Scripts\XRDeviceSimulatorUI.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Samples\XR Interaction Toolkit\2.3.2\XR Device Simulator\Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.asmdef" />
@@ -322,17 +322,17 @@
     <Reference Include="UnityEditor.Lumin.Extensions">
       <HintPath>E:\Unity\Editor\2021.1.0f1\Editor\Data\PlaybackEngines\LuminSupport\UnityEditor.Lumin.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="YamlDotNet">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.5.2\Editor\VisualScripting.Core\Dependencies\YamlDotNet\YamlDotNet.dll</HintPath>
-    </Reference>
-    <Reference Include="IonicZip">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.5.2\Editor\VisualScripting.Core\Dependencies\DotNetZip\IonicZip.dll</HintPath>
-    </Reference>
     <Reference Include="MiscUtil">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.5.2\Runtime\VisualScripting.Core\Dependencies\MiscUtil\MiscUtil.dll</HintPath>
     </Reference>
+    <Reference Include="YamlDotNet">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.5.2\Editor\VisualScripting.Core\Dependencies\YamlDotNet\YamlDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.5.2\Runtime\VisualScripting.Flow\Dependencies\NCalc\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="IonicZip">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.5.2\Editor\VisualScripting.Core\Dependencies\DotNetZip\IonicZip.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>E:\Unity\Editor\2021.1.0f1\Editor\Data\PlaybackEngines\AppleTVSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
