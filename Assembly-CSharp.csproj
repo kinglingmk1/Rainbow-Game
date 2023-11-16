@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\CollidedWithTable.cs" />
     <Compile Include="Assets\Scripts\CoinFreeGenerate.cs" />
     <Compile Include="Assets\Scripts\HandPresence.cs" />
+    <Compile Include="Assets\Scripts\PauseGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
