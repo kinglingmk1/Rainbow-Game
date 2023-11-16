@@ -23,13 +23,22 @@ public class CoinFreeGenerate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CoinOwneds = int.Parse(CoinOwned.text);
         if(CoinOwneds != CoinMaxs)
         {
             time -= Time.deltaTime;
-            NextCoin.text = time.ToString().Substring(0,2);
+            if(time < 10)
+            {
+                NextCoin.text = "0" + time.ToString().Substring(0, 1);
+            } else
+            {
+                NextCoin.text = time.ToString().Substring(0,2);
+            }
+            
         } else
         {
             time = 60;
+            NextCoin.text = time.ToString().Substring(0, 2);
         }
         
         if(CoinOwneds < CoinMaxs && time <= 0)

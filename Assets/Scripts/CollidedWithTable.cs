@@ -27,7 +27,7 @@ public class CollidedWithTable : MonoBehaviour
         Debug.Log("Enter Table");
     }
     void OnCollisionStay(Collision col)
-    { 
+    {
         //Debug statement
         //Coin keep collision will in this state.
         //Coin collision with table will count 1 to hit table on canvas.
