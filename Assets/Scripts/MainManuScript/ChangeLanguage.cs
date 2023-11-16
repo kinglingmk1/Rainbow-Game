@@ -21,11 +21,11 @@ public class ChangeLanguage : MonoBehaviour
         
     }
 
-    void changeLanguage()
+    public void changeLanguage()
     {
         if (!isEnglish)
         {
-            title.text = "Rainbow Game";
+            title.text = "RainbowGame";
             start.text = "Start";
             status.text = "Status";
             exit.text = "Exit";
