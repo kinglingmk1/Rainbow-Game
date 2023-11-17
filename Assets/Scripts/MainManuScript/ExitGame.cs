@@ -5,14 +5,18 @@ using UnityEngine;
 public class ExitGame : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void Start()
+    void Start()
     {
-        Application.Quit();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void OnQuit()
+    {
+        Application.Quit();
     }
 }
