@@ -6,11 +6,13 @@ public class CollidedWithTable : MonoBehaviour
 {
     public GameObject Coin;
     public Text CoinHitTableCount, OwnCoin;
-    Vector3 GetSpawnPosition;
+    public Rigidbody rb;
+    Vector3 GetSpawnPosition, vel;
     // Start is called before the first frame update
     void Start()
     {
         //Get coin position when started.
+        vel = rb.velocity;
         GetSpawnPosition = Coin.transform.position;
     }
 
@@ -37,9 +39,11 @@ public class CollidedWithTable : MonoBehaviour
         OwnCoin.text = (int.Parse(OwnCoin.text) - 1).ToString();
         if (int.Parse(OwnCoin.text) > 0)
         {
+            rb.velocity = vel.normalized * 1f;
             Coin.transform.position = GetSpawnPosition;
         } else
         {
+            rb.velocity = vel.normalized * 1f;
             Coin.transform.position = GetSpawnPosition;
             Coin.SetActive(false);
         }

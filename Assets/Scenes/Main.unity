@@ -246,6 +246,7 @@ MonoBehaviour:
   Coin: {fileID: 4177005322756570339}
   CoinMissCount: {fileID: 2066629637}
   OwnCoin: {fileID: 1753331378}
+  rb: {fileID: 4177005322756570341}
 --- !u!114 &151923790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,6 +830,7 @@ MonoBehaviour:
   Coin: {fileID: 4177005322756570339}
   CoinHitTableCount: {fileID: 609370042}
   OwnCoin: {fileID: 1753331378}
+  rb: {fileID: 4177005322756570341}
 --- !u!1 &597929698
 GameObject:
   m_ObjectHideFlags: 0

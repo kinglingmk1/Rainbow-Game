@@ -7,11 +7,13 @@ public class CheckCoinUnderGround : MonoBehaviour
 {
     public GameObject Coin;
     public Text CoinMissCount, OwnCoin;
-    Vector3 GetSpawnPosition;
+    public Rigidbody rb;
+    Vector3 GetSpawnPosition, vel;
     // Start is called before the first frame update
     void Start()
     {
         //Get coin start position.
+        vel = rb.velocity;
         GetSpawnPosition = Coin.transform.position;
     }
 
@@ -28,10 +30,12 @@ public class CheckCoinUnderGround : MonoBehaviour
             //If coin owned 0 will not give coin
             if(int.Parse(OwnCoin.text) > 0)
             {
+                rb.velocity = vel.normalized * 1f;
                 Coin.transform.position = GetSpawnPosition;
             }
             else
             {
+                rb.velocity = vel.normalized * 1f;
                 Coin.transform.position = GetSpawnPosition;
                 Coin.SetActive(false);
             }
