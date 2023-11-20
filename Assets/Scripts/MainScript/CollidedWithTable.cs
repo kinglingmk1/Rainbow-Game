@@ -37,7 +37,7 @@ public class CollidedWithTable : MonoBehaviour
         {
             if (time >= 3)
             {
-                //isCollision();
+                isCollision();
                 count = 0;
                 time = 0;
             } else
