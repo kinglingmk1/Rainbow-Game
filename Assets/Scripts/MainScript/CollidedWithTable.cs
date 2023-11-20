@@ -114,11 +114,13 @@ public class CollidedWithTable : MonoBehaviour
         if ((redHit == true && yellowHit == false && greenHit == false && blueHit == false) || (redHit == false && yellowHit == true && greenHit == false && blueHit == false) || (redHit == false && yellowHit == false && greenHit == true && blueHit == false)|| (redHit == false && yellowHit == false && greenHit == false && blueHit == true))
         {
             CoinIn.SetActive(true);
+            CoinOut.SetActive(false);
             Debug.Log("In");
         }
         else
         {
             CoinOut.SetActive(true);
+            CoinIn.SetActive(false);
             Debug.Log("Out");
         }
         if (int.Parse(OwnCoin.text) > 0)
