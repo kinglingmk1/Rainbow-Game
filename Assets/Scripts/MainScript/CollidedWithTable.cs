@@ -4,24 +4,32 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CollidedWithTable : MonoBehaviour
 {
-    public GameObject Coin;
+    public GameObject Coin, CoinIn, CoinOut;
     public Text CoinHitTableCount, OwnCoin;
     public Rigidbody rb;
     Vector3 GetSpawnPosition, vel;
     bool tableHit, redHit, yellowHit, greenHit, blueHit, rainbowBoundaryHit;
-    float time;
+    float time, gameGravity, scaleGravity;
+    public int count;
     // Start is called before the first frame update
     void Start()
     {
         //Get coin position when started.
+        count = 0;
         vel = rb.velocity;
         GetSpawnPosition = Coin.transform.position;
         time = 0f;
+        CoinIn.SetActive(false);
+        CoinOut.SetActive(false);
+        gameGravity = -9.8f;
+        scaleGravity = 2.6f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 gravity = gameGravity * scaleGravity * Vector3.up;
+        rb.AddForce(gravity, ForceMode.Acceleration);
         //Collided with table -> out
 
         //Collided with table + red -> out
@@ -29,112 +37,158 @@ public class CollidedWithTable : MonoBehaviour
         {
             if (time >= 3)
             {
-                isCollision();
+                //isCollision();
+                count = 0;
                 time = 0;
             } else
             {
                 time += Time.deltaTime;
             }
         }
-
+        if (!tableHit)
+        {
+            if(time <= 3)
+            {
+                time += Time.deltaTime;
+            } else
+            {
+                InOutTextReset();
+                time = 0;
+            }
+        }
     }
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "RainbowTable")
+        switch(col.gameObject.tag)
         {
-            tableHit = true;
-            Debug.Log("Enter Table");
-        }
-        else
-        {
-            if (col.gameObject.tag == "Red")
-            {
+            case "Red":
                 redHit = true;
-                Debug.Log("Enter Red");
-            }
-            else
-            {
-                if (col.gameObject.tag == "Yellow")
-                {
-                    yellowHit = true;
-                    Debug.Log("Enter Yellow");
-                }
-                else
-                {
-                    if (col.gameObject.tag == "Green")
-                    {
-                        greenHit = true;
-                        Debug.Log("Enter Green");
-                    }
-                    else
-                    {
-                        if (col.gameObject.tag == "Blue")
-                        {
-                            blueHit = true;
-                            Debug.Log("Enter Blue");
-                        }
-                    }
-                }
-            }
+                break;
+            case "Yellow":
+                yellowHit = true;
+                break;
+            case "Green":
+                greenHit = true;
+                break;
+            case "Blue":
+                blueHit = true;
+                break;
+            case "RainbowTable":
+                tableHit = true;
+                break;
+          }
+
+
+        count++;
+        Debug.Log("Enter " + col.gameObject.tag+ col.gameObject.transform.GetInstanceID());
+
+        for(int i = 0; i < col.contacts.Length;i++)
+        {
+            new GameObject(col.gameObject.tag + " Collision point 0"+ i).transform.position = col.contacts[i].point;
         }
     }
+        //if (col.gameObject.tag == "RainbowTable")
+        //{
+        //    //count++; 
+        //    Debug.Log("Enter Table");
+        //}
+        //else
+        //{
+        //    if (col.gameObject.tag == "Red")
+        //    {
+        //        redHit = true;
+        //        count++;
+        //        Debug.Log("Enter Red");
+        //    }
+        //    else
+        //    {
+        //        if (col.gameObject.tag == "Yellow")
+        //        {
+        //            yellowHit = true;
+        //            count++;
+        //            Debug.Log("Enter Yellow");
+        //        }
+        //        else
+        //        {
+        //            if (col.gameObject.tag == "Green")
+        //            {
+        //                greenHit = true;
+        //                count++;
+        //                Debug.Log("Enter Green");
+        //            }
+        //            else
+        //            {
+        //                if (col.gameObject.tag == "Blue")
+        //                {
+        //                    blueHit = true;
+        //                    count++;
+        //                    Debug.Log("Enter Blue");
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
     void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.tag == "RainbowTable")
+        switch (col.gameObject.tag)
         {
-            tableHit = false;
-            Debug.Log("Leave Table");
-        }
-        else
-        {
-            if (col.gameObject.tag == "Red")
-            {
+            case "Red":
                 redHit = false;
-                Debug.Log("Leave Red");
-            }
-            else
-            {
-                if (col.gameObject.tag == "Yellow")
-                {
-                    yellowHit = false;
-                    Debug.Log("Leave Yellow");
-                }
-                else
-                {
-                    if (col.gameObject.tag == "Green")
-                    {
-                        greenHit = false;
-                        Debug.Log("Leave Green");
-                    }
-                    else
-                    {
-                        if (col.gameObject.tag == "Blue")
-                        {
-                            blueHit = false;
-                            Debug.Log("Leave Blue");
-                        }
-                    }
-                }
-            }
+                break;
+            case "Yellow":
+                yellowHit = false;
+                break;
+            case "Green":
+                greenHit = false;
+                break;
+            case "Blue":
+                blueHit = false;
+                break;
+            case "RainbowTable":
+                tableHit = false;
+                break;
         }
+        count++;
+        Debug.Log("Leave " + col.gameObject.tag + col.gameObject.transform.GetInstanceID());
     }
     void isCollision()
     {
         //Collision check
         CoinHitTableCount.text = (int.Parse(CoinHitTableCount.text) + 1).ToString();
         OwnCoin.text = (int.Parse(OwnCoin.text) - 1).ToString();
+        if (count == 1)
+        {
+            CoinIn.SetActive(true);
+            Debug.Log("In");
+        }
+        else
+        {
+            CoinOut.SetActive(true);
+            Debug.Log("Out");
+        }
         if (int.Parse(OwnCoin.text) > 0)
         {
             rb.velocity = vel.normalized * 1f;
             Coin.transform.position = GetSpawnPosition;
-        } else
+        }
+        else
         {
             rb.velocity = vel.normalized * 1f;
             Coin.transform.position = GetSpawnPosition;
             Coin.SetActive(false);
         }
-
+        count = 0;
         Debug.Log("Collision With Table");
+    }
+    void InOutTextReset()
+    {
+        CoinIn.SetActive(false);
+        CoinOut.SetActive(false);
+    }
+    void OnEnable()
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
     }
 }
