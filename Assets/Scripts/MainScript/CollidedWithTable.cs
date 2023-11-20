@@ -77,9 +77,6 @@ public class CollidedWithTable : MonoBehaviour
                 tableHit = true;
                 break;
           }
-
-
-        count++;
         Debug.Log("Enter " + col.gameObject.tag+ col.gameObject.transform.GetInstanceID());
 
         for(int i = 0; i < col.contacts.Length;i++)
@@ -87,48 +84,6 @@ public class CollidedWithTable : MonoBehaviour
             new GameObject(col.gameObject.tag + " Collision point 0"+ i).transform.position = col.contacts[i].point;
         }
     }
-        //if (col.gameObject.tag == "RainbowTable")
-        //{
-        //    //count++; 
-        //    Debug.Log("Enter Table");
-        //}
-        //else
-        //{
-        //    if (col.gameObject.tag == "Red")
-        //    {
-        //        redHit = true;
-        //        count++;
-        //        Debug.Log("Enter Red");
-        //    }
-        //    else
-        //    {
-        //        if (col.gameObject.tag == "Yellow")
-        //        {
-        //            yellowHit = true;
-        //            count++;
-        //            Debug.Log("Enter Yellow");
-        //        }
-        //        else
-        //        {
-        //            if (col.gameObject.tag == "Green")
-        //            {
-        //                greenHit = true;
-        //                count++;
-        //                Debug.Log("Enter Green");
-        //            }
-        //            else
-        //            {
-        //                if (col.gameObject.tag == "Blue")
-        //                {
-        //                    blueHit = true;
-        //                    count++;
-        //                    Debug.Log("Enter Blue");
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
     void OnCollisionExit(Collision col)
     {
         switch (col.gameObject.tag)
@@ -149,7 +104,6 @@ public class CollidedWithTable : MonoBehaviour
                 tableHit = false;
                 break;
         }
-        count++;
         Debug.Log("Leave " + col.gameObject.tag + col.gameObject.transform.GetInstanceID());
     }
     void isCollision()
@@ -157,7 +111,7 @@ public class CollidedWithTable : MonoBehaviour
         //Collision check
         CoinHitTableCount.text = (int.Parse(CoinHitTableCount.text) + 1).ToString();
         OwnCoin.text = (int.Parse(OwnCoin.text) - 1).ToString();
-        if (count == 1)
+        if ((redHit == true && yellowHit == false && greenHit == false && blueHit == false) || (redHit == false && yellowHit == true && greenHit == false && blueHit == false) || (redHit == false && yellowHit == false && greenHit == true && blueHit == false)|| (redHit == false && yellowHit == false && greenHit == false && blueHit == true))
         {
             CoinIn.SetActive(true);
             Debug.Log("In");
