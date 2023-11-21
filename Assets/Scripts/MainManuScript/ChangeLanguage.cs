@@ -23,11 +23,11 @@ public class ChangeLanguage : MonoBehaviour
 
     public void changeLanguage()
     {
-        if (!isEnglish)
+        if (isEnglish)
         {
             title.text = "RainbowGame";
             start.text = "Start";
-            status.text = "Status";
+            status.text = "Shop";
             exit.text = "Exit";
             language.text = "Language";
             isEnglish = true;
@@ -35,10 +35,18 @@ public class ChangeLanguage : MonoBehaviour
         {
             title.text = "レインボーゲーム";
             start.text = "スタート";
-            status.text = "ステータス";
+            status.text = "ショップ";
             exit.text = "出口";
             language.text = "言語";
             isEnglish = false;
+        }
+    }
+    
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Language")
+        {
+            changeLanguage();
         }
     }
 }

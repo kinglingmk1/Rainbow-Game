@@ -11,6 +11,9 @@ TagManager:
   - Red
   - Coin
   - BackToMenu
+  - Start
+  - Exit
+  - Language
   layers:
   - Default
   - TransparentFX

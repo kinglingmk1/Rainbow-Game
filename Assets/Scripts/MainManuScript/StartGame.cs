@@ -16,8 +16,22 @@ public class StartGame : MonoBehaviour
     {
         
     }
-    public void goMain()
+    
+    /// <summary>
+    /// old code for start game
+    /// already change to OnCollisionEnter
+    /// </summary>
+    /// <param name="col"></param>
+    // public void goMain()
+    // {
+    //     SceneManager.LoadScene("Main");
+    // }
+    
+    void OnCollisionEnter(Collision col)
     {
-        SceneManager.LoadScene("Main");
+        if (col.gameObject.tag == "Start")
+        {
+            SceneManager.LoadScene("Main");
+        }
     }
 }

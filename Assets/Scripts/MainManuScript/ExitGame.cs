@@ -15,8 +15,22 @@ public class ExitGame : MonoBehaviour
     {
         
     }
-    public void OnQuit()
+
+    /// <summary>
+    /// old code for exit game
+    /// already change to OnCollisionEnter
+    /// </summary>
+    /// <param name="col"></param>
+    // public void OnQuit()
+    // {
+    //     Application.Quit();
+    // }
+    
+    void OnCollisionEnter(Collision col)
     {
-        Application.Quit();
+        if (col.gameObject.tag == "Exit")
+        {
+            Application.Quit();
+        }
     }
 }
