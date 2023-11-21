@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 public class CollidedWithTable : MonoBehaviour
 {
     public GameObject Coin, CoinIn, CoinOut;
@@ -11,6 +12,9 @@ public class CollidedWithTable : MonoBehaviour
     bool tableHit, redHit, yellowHit, greenHit, blueHit, rainbowBoundaryHit;
     float time, gameGravity, scaleGravity;
     public int count;
+    public AudioListener audioListener;
+    public AudioSource audioSource;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +32,8 @@ public class CollidedWithTable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        audioListener.enabled = true;
+        
         Vector3 gravity = gameGravity * scaleGravity * Vector3.up;
         rb.AddForce(gravity, ForceMode.Acceleration);
         //Collided with table -> out
@@ -78,6 +84,7 @@ public class CollidedWithTable : MonoBehaviour
                 break;
           }
         Debug.Log("Enter " + col.gameObject.tag+ col.gameObject.transform.GetInstanceID());
+        audioSource.Play();
 
         for(int i = 0; i < col.contacts.Length;i++)
         {
