@@ -6,10 +6,11 @@ using UnityEngine.Audio;
 public class CollidedWithTable : MonoBehaviour
 {
     public GameObject Coin, CoinIn, CoinOut;
-    public Text CoinHitTableCount, OwnCoin;
+    public Text CoinHitTableCount, OwnCoin,RedText,YellowText,GreenText,BlueText,HitTableText;
     public Rigidbody rb;
     Vector3 GetSpawnPosition, vel;
     bool tableHit, redHit, yellowHit, greenHit, blueHit, rainbowBoundaryHit;
+    public int[] goalArray = new int[4];
     float time, gameGravity, scaleGravity;
     public int count;
     public AudioListener audioListener;
@@ -19,6 +20,7 @@ public class CollidedWithTable : MonoBehaviour
     void Start()
     {
         //Get coin position when started.
+        audioSource = GetComponent<AudioSource>();
         count = 0;
         vel = rb.velocity;
         GetSpawnPosition = Coin.transform.position;
@@ -27,6 +29,10 @@ public class CollidedWithTable : MonoBehaviour
         CoinOut.SetActive(false);
         gameGravity = -9.8f;
         scaleGravity = 2.6f;
+        for(int i=0; i<4; i++)
+        {
+            goalArray[i] = 0;
+        }
     }
 
     // Update is called once per frame
@@ -65,7 +71,12 @@ public class CollidedWithTable : MonoBehaviour
     }
     void OnCollisionEnter(Collision col)
     {
-        switch(col.gameObject.tag)
+        
+        if (!audioSource.isPlaying && col.gameObject.tag != "Player")
+        {
+            audioSource.Play();
+        }
+        switch (col.gameObject.tag)
         {
             case "Red":
                 redHit = true;
@@ -81,11 +92,10 @@ public class CollidedWithTable : MonoBehaviour
                 break;
             case "RainbowTable":
                 tableHit = true;
+                HitTableText.text = "true";
                 break;
           }
         Debug.Log("Enter " + col.gameObject.tag+ col.gameObject.transform.GetInstanceID());
-        audioSource.Play();
-
         for(int i = 0; i < col.contacts.Length;i++)
         {
             new GameObject(col.gameObject.tag + " Collision point 0"+ i).transform.position = col.contacts[i].point;
@@ -109,6 +119,7 @@ public class CollidedWithTable : MonoBehaviour
                 break;
             case "RainbowTable":
                 tableHit = false;
+                HitTableText.text = "false";
                 break;
         }
         Debug.Log("Leave " + col.gameObject.tag + col.gameObject.transform.GetInstanceID());
@@ -118,8 +129,28 @@ public class CollidedWithTable : MonoBehaviour
         //Collision check
         CoinHitTableCount.text = (int.Parse(CoinHitTableCount.text) + 1).ToString();
         OwnCoin.text = (int.Parse(OwnCoin.text) - 1).ToString();
-        if ((redHit == true && yellowHit == false && greenHit == false && blueHit == false) || (redHit == false && yellowHit == true && greenHit == false && blueHit == false) || (redHit == false && yellowHit == false && greenHit == true && blueHit == false)|| (redHit == false && yellowHit == false && greenHit == false && blueHit == true))
+        if ((redHit == true && yellowHit == false && greenHit == false && blueHit == false) || (redHit == false && yellowHit == true && greenHit == false && blueHit == false) || (redHit == false && yellowHit == false && greenHit == true && blueHit == false) || (redHit == false && yellowHit == false && greenHit == false && blueHit == true))
         {
+            if (redHit)
+            {
+                goalArray[0]++;
+                RedText.text = goalArray[0].ToString();
+            }
+            if (yellowHit)
+            {
+                goalArray[1]++;
+                YellowText.text = goalArray[1].ToString();  
+            }
+            if (greenHit)
+            {
+                goalArray[2]++;
+                GreenText.text = goalArray[2].ToString();
+            }
+            if (blueHit)
+            {
+                goalArray[3]++;
+                BlueText.text = goalArray[3].ToString();
+            }
             CoinIn.SetActive(true);
             CoinOut.SetActive(false);
             Debug.Log("In");
@@ -129,17 +160,6 @@ public class CollidedWithTable : MonoBehaviour
             CoinOut.SetActive(true);
             CoinIn.SetActive(false);
             Debug.Log("Out");
-        }
-        if (int.Parse(OwnCoin.text) > 0)
-        {
-            rb.velocity = vel.normalized * 1f;
-            Coin.transform.position = GetSpawnPosition;
-        }
-        else
-        {
-            rb.velocity = vel.normalized * 1f;
-            Coin.transform.position = GetSpawnPosition;
-            Coin.SetActive(false);
         }
         count = 0;
         Debug.Log("Collision With Table");
