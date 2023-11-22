@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.XR.Interaction.Toolki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator", "Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj", "{e300555f-e707-b8b9-7e28-db0c0b4f8b13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{8bda8031-edd1-0e05-b48c-23041e5da9e9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,8 @@ Global
 		{be24dbe2-6373-1699-b957-4ff459465c22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e300555f-e707-b8b9-7e28-db0c0b4f8b13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{e300555f-e707-b8b9-7e28-db0c0b4f8b13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8bda8031-edd1-0e05-b48c-23041e5da9e9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8bda8031-edd1-0e05-b48c-23041e5da9e9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
