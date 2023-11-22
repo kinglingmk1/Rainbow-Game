@@ -348,6 +348,10 @@ MonoBehaviour:
   Coin: {fileID: 4177005322756570339}
   CoinIn: {fileID: 2012877995}
   CoinOut: {fileID: 1506150968}
+  Idle: {fileID: 724421685}
+  Joyful: {fileID: 2072597313}
+  Jumping: {fileID: 1486890021}
+  Dump: {fileID: 1550143733}
   CoinHitTableCount: {fileID: 609370042}
   OwnCoin: {fileID: 1753331378}
   RedText: {fileID: 180902614}
@@ -2415,6 +2419,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coin: {fileID: 919132148317395374}
+  Jumping: {fileID: 1486890021}
+  Joyful: {fileID: 2072597313}
+  Idle: {fileID: 724421685}
   CoinMissCount: {fileID: 2066629637}
   OwnCoin: {fileID: 1753331378}
   HitTable: {fileID: 56749713}
@@ -12194,6 +12201,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723358074}
   m_Mesh: {fileID: -1824870671384894608, guid: de0529d99734ae4459e6c52d10968273, type: 3}
+--- !u!1 &724421685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 15f2ecd44ff552742873a3c86b81a7ef, type: 3}
+  m_PrefabInstance: {fileID: 438651302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &725594117
 GameObject:
   m_ObjectHideFlags: 0
@@ -16205,6 +16217,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d59ee91e3e1719f4c8f92141ec402293, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 37334811ae38c8844bf7a24a1aa37286, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37334811ae38c8844bf7a24a1aa37286, type: 3}
 --- !u!1 &951732075
@@ -17058,7 +17074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b8ca6f91da88bc4fa3357076d2bd7e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.92
+      value: 22.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b8ca6f91da88bc4fa3357076d2bd7e4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17066,7 +17082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b8ca6f91da88bc4fa3357076d2bd7e4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.31
+      value: -19.51
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b8ca6f91da88bc4fa3357076d2bd7e4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24747,6 +24763,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474650648}
   m_Mesh: {fileID: 849032210722914114, guid: 9e5874d3fd7a09f46a3f413fdf03de6f, type: 3}
+--- !u!1 &1486890021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 37334811ae38c8844bf7a24a1aa37286, type: 3}
+  m_PrefabInstance: {fileID: 951577928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1490909608
 GameObject:
   m_ObjectHideFlags: 0
@@ -26672,6 +26693,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544135585}
   m_Mesh: {fileID: 849032210722914114, guid: 9e5874d3fd7a09f46a3f413fdf03de6f, type: 3}
+--- !u!1 &1550143733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b8ca6f91da88bc4fa3357076d2bd7e4, type: 3}
+  m_PrefabInstance: {fileID: 982993156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1551795517
 GameObject:
   m_ObjectHideFlags: 0
@@ -35234,6 +35260,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066629635}
   m_CullTransparentMesh: 1
+--- !u!1 &2072597313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dc620696d5104f94f826c0230cdf3df5, type: 3}
+  m_PrefabInstance: {fileID: 541182604}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2076623678
 GameObject:
   m_ObjectHideFlags: 0
@@ -36958,6 +36989,10 @@ MonoBehaviour:
   Coin: {fileID: 4177005322756570339}
   CoinIn: {fileID: 2012877995}
   CoinOut: {fileID: 1506150968}
+  Idle: {fileID: 0}
+  Joyful: {fileID: 0}
+  Jumping: {fileID: 0}
+  Dump: {fileID: 0}
   CoinHitTableCount: {fileID: 609370042}
   OwnCoin: {fileID: 1753331378}
   RedText: {fileID: 0}

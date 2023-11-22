@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CheckCoinUnderGround : MonoBehaviour
 {
-    public GameObject Coin;
+    public GameObject Coin, Jumping, Joyful, Idle;
     public Text CoinMissCount, OwnCoin,HitTable;
     public Rigidbody rb;
     Vector3 GetSpawnPosition, vel;
@@ -25,11 +25,14 @@ public class CheckCoinUnderGround : MonoBehaviour
     {
         if (HitTable.text.Equals("true"))
         {
-            if(time < 3)
+            if(time < 5)
             {
                 time += Time.deltaTime;
             } else
             {
+                Jumping.SetActive(false);
+                Joyful.SetActive(false);
+                Idle.SetActive(true);
                 resetCoin();
                 HitTable.text = "false";
                 time = 0;

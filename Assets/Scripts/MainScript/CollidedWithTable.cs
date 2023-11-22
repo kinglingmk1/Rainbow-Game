@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 public class CollidedWithTable : MonoBehaviour
 {
-    public GameObject Coin, CoinIn, CoinOut;
+    public GameObject Coin, CoinIn, CoinOut, Idle, Joyful, Jumping, Dump;
     public Text CoinHitTableCount, OwnCoin,RedText,YellowText,GreenText,BlueText,HitTableText;
     public Rigidbody rb;
     Vector3 GetSpawnPosition, vel;
@@ -131,25 +131,30 @@ public class CollidedWithTable : MonoBehaviour
         OwnCoin.text = (int.Parse(OwnCoin.text) - 1).ToString();
         if ((redHit == true && yellowHit == false && greenHit == false && blueHit == false) || (redHit == false && yellowHit == true && greenHit == false && blueHit == false) || (redHit == false && yellowHit == false && greenHit == true && blueHit == false) || (redHit == false && yellowHit == false && greenHit == false && blueHit == true))
         {
+            Idle.SetActive(false);
             if (redHit)
             {
                 goalArray[0]++;
                 RedText.text = goalArray[0].ToString();
+                Jumping.SetActive(true);
             }
             if (yellowHit)
             {
                 goalArray[1]++;
-                YellowText.text = goalArray[1].ToString();  
+                YellowText.text = goalArray[1].ToString();
+                Jumping.SetActive(true);
             }
             if (greenHit)
             {
                 goalArray[2]++;
                 GreenText.text = goalArray[2].ToString();
+                Joyful.SetActive(true);
             }
             if (blueHit)
             {
                 goalArray[3]++;
                 BlueText.text = goalArray[3].ToString();
+                Joyful.SetActive(true);
             }
             CoinIn.SetActive(true);
             CoinOut.SetActive(false);
@@ -157,6 +162,9 @@ public class CollidedWithTable : MonoBehaviour
         }
         else
         {
+            Jumping.SetActive(false);
+            Joyful.SetActive(false);
+            Idle.SetActive(true);
             CoinOut.SetActive(true);
             CoinIn.SetActive(false);
             Debug.Log("Out");
