@@ -14,6 +14,8 @@ TagManager:
   - Start
   - Exit
   - Language
+  - BuyCoin
+  - BlackBoundary
   layers:
   - Default
   - TransparentFX

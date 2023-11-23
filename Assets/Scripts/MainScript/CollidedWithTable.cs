@@ -50,7 +50,7 @@ public class CollidedWithTable : MonoBehaviour
         //Collided with table + red -> out
         if (tableHit)
         {
-            if (time >= 3)
+            if (time >= 5)
             {
                 isCollision();
                 count = 0;
@@ -62,7 +62,7 @@ public class CollidedWithTable : MonoBehaviour
         }
         if (!tableHit)
         {
-            if(time <= 3)
+            if(time <= 5)
             {
                 time += Time.deltaTime;
             } else
@@ -93,6 +93,9 @@ public class CollidedWithTable : MonoBehaviour
             case "Blue":
                 blueHit = true;
                 break;
+            case "BlackBoundary":
+                rainbowBoundaryHit = true;
+                break;
             case "RainbowTable":
                 tableHit = true;
                 HitTableText.text = "true";
@@ -120,6 +123,9 @@ public class CollidedWithTable : MonoBehaviour
             case "Blue":
                 blueHit = false;
                 break;
+            case "BlackBoundary":
+                rainbowBoundaryHit = false;
+                break;
             case "RainbowTable":
                 tableHit = false;
                 HitTableText.text = "false";
@@ -132,9 +138,18 @@ public class CollidedWithTable : MonoBehaviour
         //Collision check
         CoinHitTableCount.text = (int.Parse(CoinHitTableCount.text) + 1).ToString();
         OwnCoin.text = (int.Parse(OwnCoin.text) - 1).ToString();
+        if (rainbowBoundaryHit) // Hit the boundary
+        {
+            redHit = false;
+            yellowHit = false;
+            greenHit = false;
+            blueHit = false;
+            rainbowBoundaryHit = false;
+        }
         if ((redHit == true && yellowHit == false && greenHit == false && blueHit == false) || (redHit == false && yellowHit == true && greenHit == false && blueHit == false) || (redHit == false && yellowHit == false && greenHit == true && blueHit == false) || (redHit == false && yellowHit == false && greenHit == false && blueHit == true))
         {
             Idle.SetActive(false);
+            
             if (redHit)
             {
                 goalArray[0]++;

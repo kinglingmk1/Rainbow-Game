@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RagdollUnfreeze : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class RagdollUnfreeze : MonoBehaviour
     private Dictionary<Rigidbody, (Vector3, Vector3)> m_RigidbodyDict;
     private bool m_Triggered;
     private float m_ResetTime;
+    public Text HitTable;
 
     private void Awake()
     {
@@ -28,6 +30,7 @@ public class RagdollUnfreeze : MonoBehaviour
 
     public void TriggerRagdoll()
     {
+        HitTable.text = "true";
         if (m_Triggered)
             return;
 
