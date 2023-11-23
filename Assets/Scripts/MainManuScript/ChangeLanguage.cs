@@ -12,7 +12,7 @@ public class ChangeLanguage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     changeLanguage();   
+    
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class ChangeLanguage : MonoBehaviour
             status.text = "Login";
             exit.text = "Exit";
             language.text = "Language";
-            isEnglish = false;
+            isEnglish = true;
         }
         if(isEnglish)
         {
@@ -39,7 +39,7 @@ public class ChangeLanguage : MonoBehaviour
             status.text = "ログイン";
             exit.text = "出口";
             language.text = "言語";
-            isEnglish = true;
+            isEnglish = false;
         }
     }
     
