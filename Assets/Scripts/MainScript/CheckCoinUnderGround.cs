@@ -40,7 +40,7 @@ public class CheckCoinUnderGround : MonoBehaviour
             
         }
         //If coin under the floor will reset the coin position and count miss++.
-        if(Coin.transform.position.y <= 0)
+        if(Coin.transform.position.y <= 2)
         {
             //Debug.Log(Coin.transform.position.y);
             

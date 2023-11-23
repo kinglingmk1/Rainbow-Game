@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feeef8d85de8db242bdda70cc7ff5acd, type: 3}
   m_Name: OculusTouchControllerProfile Standalone
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: Oculus Touch Controller Profile
   version: 0.0.1
   featureIdInternal: com.unity.openxr.feature.input.oculustouch
@@ -372,19 +372,19 @@ MonoBehaviour:
   m_Name: Standalone
   m_EditorClassIdentifier: 
   features:
-  - {fileID: -1075191798932038888}
   - {fileID: -1607454882120540115}
   - {fileID: -1936161916215172758}
   - {fileID: -324057628966458375}
   - {fileID: -3097202014418853998}
   - {fileID: 9067059574863346516}
   - {fileID: 2177284211209873158}
-  - {fileID: -490967705210423453}
-  - {fileID: -3784914184981413086}
-  - {fileID: 5171676566122178742}
+  - {fileID: -1075191798932038888}
   - {fileID: -8737983932940005522}
+  - {fileID: -490967705210423453}
+  - {fileID: 5171676566122178742}
+  - {fileID: -3784914184981413086}
   m_renderMode: 1
-  m_depthSubmissionMode: 0
+  m_depthSubmissionMode: 2
 --- !u!114 &5171676566122178742
 MonoBehaviour:
   m_ObjectHideFlags: 0
