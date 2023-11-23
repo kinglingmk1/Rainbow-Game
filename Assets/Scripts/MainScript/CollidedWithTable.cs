@@ -15,6 +15,7 @@ public class CollidedWithTable : MonoBehaviour
     public int count;
     public AudioListener audioListener;
     public AudioSource audioSource;
+    public ParticleSystem system;
     
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,8 @@ public class CollidedWithTable : MonoBehaviour
         {
             goalArray[i] = 0;
         }
+        
+        ParticleSystem system = this.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -159,6 +162,9 @@ public class CollidedWithTable : MonoBehaviour
             CoinIn.SetActive(true);
             CoinOut.SetActive(false);
             Debug.Log("In");
+            
+            //play particle
+            system.Play();
         }
         else
         {
