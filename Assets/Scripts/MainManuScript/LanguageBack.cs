@@ -10,13 +10,13 @@ public class LanguageBack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pos = languageBlock.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        pos = languageBlock.transform.position;
+        
     }
     
     void OnCollisionEnter(Collision col)
