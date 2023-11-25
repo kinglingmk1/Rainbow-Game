@@ -72,6 +72,7 @@
      <Compile Include="Assets\48 Particle Effect Pack(form asset store)\Script\csDestroyEffect.cs" />
      <Compile Include="Assets\48 Particle Effect Pack(form asset store)\Script\csParticleEffectPackLightControl.cs" />
      <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
+     <Compile Include="Assets\SU3DJPFont(form asset store)\Demo\Scripts\SampleScene.cs" />
      <Compile Include="Assets\Scripts\MainManuScript\ExitGame.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
      <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunShoot.cs" />
@@ -103,7 +104,6 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
-     <Compile Include="Assets\SU3DJPFont(form asset store)\Demo\Scripts\SampleScene.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
