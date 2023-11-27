@@ -16,6 +16,7 @@ TagManager:
   - Language
   - BuyCoin
   - BlackBoundary
+  - Login
   layers:
   - Default
   - TransparentFX

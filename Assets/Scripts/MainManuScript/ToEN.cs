@@ -21,7 +21,7 @@ public class ToEN : MonoBehaviour
     {
         if (col.gameObject.tag == "Language")
         {
-            SceneManager.LoadScene("MainMenuEN");
+            SceneManager.LoadScene("MainManuEN");
         }
     }
 }
