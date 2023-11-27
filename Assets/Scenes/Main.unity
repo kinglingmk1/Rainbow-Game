@@ -1901,8 +1901,8 @@ MonoBehaviour:
   vrCamera: {fileID: 1123579514}
   coin: {fileID: 919132148317395374}
   coinCam: {fileID: 2077511515}
-  coinImage: {fileID: 0}
-  coinCanvas: {fileID: 0}
+  coinImage: {fileID: 1799535811}
+  coinCanvas: {fileID: 251821872}
 --- !u!1 &158212335
 GameObject:
   m_ObjectHideFlags: 0

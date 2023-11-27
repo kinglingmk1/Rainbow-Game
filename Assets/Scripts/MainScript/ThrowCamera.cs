@@ -26,14 +26,18 @@ public class ThrowCamera : MonoBehaviour
     {
         if(coin.transform.position.z >= -34.55)
         {
-            vrCamera.SetActive(false);
+            //vrCamera.SetActive(false);
             coinCamera.SetActive(true);
             coinCamera.transform.position = new Vector3(coin.transform.position.x,coinCamera.transform.position.y,coin.transform.position.z);
+            coinCam.targetTexture = RenderTexture.GetTemporary(Screen.width, Screen.height, 16);
+            coinImage.texture = coinCam.targetTexture;
+            
         }
         else
         {
-            vrCamera.SetActive(true);
+            //vrCamera.SetActive(true);
             coinCamera.SetActive(false);
+            coinImage.texture = null;
         }
         
     }
