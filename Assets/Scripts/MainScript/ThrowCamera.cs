@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ThrowCamera : MonoBehaviour
 {
     public GameObject coinCamera, vrCamera, coin;
+    public Camera coinCam;
     Vector3 coinPosition, cameraPosition;
+    public RawImage coinImage;
+    public Canvas coinCanvas;
+    //Texture2D showcam;
+    
     // Start is called before the first frame update
     void Start()
     {
         coinCamera.SetActive(false);
         coinPosition = coin.transform.position;
         cameraPosition = coinCamera.transform.position;
+        coinCam = this.coinCamera.GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -30,12 +37,12 @@ public class ThrowCamera : MonoBehaviour
         }
         
     }
-    void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.tag == "Coin")
-        {
-            Debug.Log("Coin");
+    //void OnCollisionEnter(Collision col)
+    //{
+    //    if (col.gameObject.tag == "Coin")
+    //    {
+    //        Debug.Log("Coin");
             
-        }
-    }
+    //    }
+    //}
 }

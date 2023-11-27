@@ -54,6 +54,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
      <Compile Include="Assets\Scripts\MainManuScript\ChangeLanguage.cs" />
+     <Compile Include="Assets\Scripts\MainManuScript\Login.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
      <Compile Include="Assets\Scripts\VRScript\HMDInfoManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
@@ -88,6 +89,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\RagdollUnfreeze.cs" />
+     <Compile Include="Assets\Scripts\MainManuScript\ResetCion.cs" />
      <Compile Include="Assets\Scripts\MainScript\CheckCoinUnderGround.cs" />
      <Compile Include="Assets\Scripts\MainScript\CollidedWithTable.cs" />
      <Compile Include="Assets\Scripts\MainScript\ThrowCamera.cs" />
@@ -106,8 +108,6 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
-     <Compile Include="Assets\Scripts\MainManuScript\Login.cs" />
-     <Compile Include="Assets\Scripts\MainManuScript\ResetCion.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
