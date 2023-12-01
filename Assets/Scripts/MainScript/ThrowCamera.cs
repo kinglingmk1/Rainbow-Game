@@ -20,7 +20,15 @@ public class ThrowCamera : MonoBehaviour
         cameraPosition = coinCamera.transform.position;
         coinCam = this.coinCamera.GetComponent<Camera>();
     }
-
+    void Awake()
+    {
+        coinCam.targetTexture = RenderTexture.GetTemporary(1280, 720, 16);
+        coinImage.texture = coinCam.targetTexture;
+    }
+    void OnDestroy()
+    {
+        coinImage.texture = null;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -29,24 +37,13 @@ public class ThrowCamera : MonoBehaviour
             //vrCamera.SetActive(false);
             coinCamera.SetActive(true);
             coinCamera.transform.position = new Vector3(coin.transform.position.x,coinCamera.transform.position.y,coin.transform.position.z);
-            coinCam.targetTexture = RenderTexture.GetTemporary(Screen.width, Screen.height, 16);
-            coinImage.texture = coinCam.targetTexture;
             
         }
         else
         {
             //vrCamera.SetActive(true);
             coinCamera.SetActive(false);
-            coinImage.texture = null;
         }
         
     }
-    //void OnCollisionEnter(Collision col)
-    //{
-    //    if (col.gameObject.tag == "Coin")
-    //    {
-    //        Debug.Log("Coin");
-            
-    //    }
-    //}
 }

@@ -101,11 +101,11 @@ public class CollidedWithTable : MonoBehaviour
                 HitTableText.text = "true";
                 break;
           }
-        Debug.Log("Enter " + col.gameObject.tag+ col.gameObject.transform.GetInstanceID());
-        for(int i = 0; i < col.contacts.Length;i++)
-        {
-            new GameObject(col.gameObject.tag + " Collision point 0"+ i).transform.position = col.contacts[i].point;
-        }
+        //Debug.Log("Enter " + col.gameObject.tag+ col.gameObject.transform.GetInstanceID());
+        //for(int i = 0; i < col.contacts.Length;i++)
+        //{
+        //    new GameObject(col.gameObject.tag + " Collision point 0"+ i).transform.position = col.contacts[i].point;
+        //}
     }
     void OnCollisionExit(Collision col)
     {
@@ -131,7 +131,7 @@ public class CollidedWithTable : MonoBehaviour
                 HitTableText.text = "false";
                 break;
         }
-        Debug.Log("Leave " + col.gameObject.tag + col.gameObject.transform.GetInstanceID());
+        //Debug.Log("Leave " + col.gameObject.tag + col.gameObject.transform.GetInstanceID());
     }
     void isCollision()
     {
