@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 public class CollidedWithTable : MonoBehaviour
 {
-    public GameObject Coin, CoinIn, CoinOut, Idle, Joyful, Jumping, Dump;
+    public GameObject Coin, CoinIn, CoinOut, Idle, Joyful, Jumping, Dump, Hit,HitBoundary;
     public Text CoinHitTableCount, OwnCoin,RedText,YellowText,GreenText,BlueText,HitTableText;
     public Rigidbody rb;
     Vector3 GetSpawnPosition, vel;
@@ -21,6 +21,8 @@ public class CollidedWithTable : MonoBehaviour
     void Start()
     {
         //Get coin position when started.
+        Hit.SetActive(false);
+        HitBoundary.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         count = 0;
         vel = rb.velocity;
@@ -62,12 +64,14 @@ public class CollidedWithTable : MonoBehaviour
         }
         if (!tableHit)
         {
-            if(time <= 5)
+            if(time <= 2)
             {
                 time += Time.deltaTime;
             } else
             {
                 InOutTextReset();
+                HitBoundary.SetActive(false);
+                Hit.SetActive(false);
                 time = 0;
             }
         }
@@ -145,11 +149,12 @@ public class CollidedWithTable : MonoBehaviour
             greenHit = false;
             blueHit = false;
             rainbowBoundaryHit = false;
+            HitBoundary.SetActive(true);
         }
         if ((redHit == true && yellowHit == false && greenHit == false && blueHit == false) || (redHit == false && yellowHit == true && greenHit == false && blueHit == false) || (redHit == false && yellowHit == false && greenHit == true && blueHit == false) || (redHit == false && yellowHit == false && greenHit == false && blueHit == true))
         {
             Idle.SetActive(false);
-            
+            Hit.SetActive(true);
             if (redHit)
             {
                 goalArray[0]++;
@@ -188,6 +193,7 @@ public class CollidedWithTable : MonoBehaviour
             Idle.SetActive(true);
             CoinOut.SetActive(true);
             CoinIn.SetActive(false);
+            HitBoundary.SetActive(true);
             Debug.Log("Out");
         }
         count = 0;

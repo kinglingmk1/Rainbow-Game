@@ -25,7 +25,7 @@ public class CheckCoinUnderGround : MonoBehaviour
     {
         if (HitTable.text.Equals("true"))
         {
-            if(time < 5)
+            if(time <= 7)
             {
                 time += Time.deltaTime;
             } else
