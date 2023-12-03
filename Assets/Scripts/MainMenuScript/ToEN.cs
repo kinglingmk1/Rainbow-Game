@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ToJP : MonoBehaviour
+public class ToEN : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,12 +16,12 @@ public class ToJP : MonoBehaviour
     {
         
     }
-    
+
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Language")
         {
-            SceneManager.LoadScene("MainManuJP");
+            SceneManager.LoadScene("MainMenuEN");
         }
     }
 }

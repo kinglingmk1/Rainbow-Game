@@ -20,7 +20,7 @@ public class BackToMenu : MonoBehaviour
         if (col.gameObject.tag == "BackToMenu")
         {
             Debug.Log("BackToMenu");
-            SceneManager.LoadScene("MainManuJP");
+            SceneManager.LoadScene("MainMenuEN");
         }
     }
 }
