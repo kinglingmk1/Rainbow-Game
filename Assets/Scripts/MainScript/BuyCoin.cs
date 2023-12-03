@@ -26,7 +26,7 @@ public class BuyCoin : MonoBehaviour
         if (col.gameObject.tag == "BuyCoin")
         {
             Debug.Log("BuyCoin");
-            OwnCoin.text = (int.Parse(BlueText.text)*4 + int.Parse(GreenText.text) * 3 + int.Parse(YellowText.text) * 2 + int.Parse(RedText.text) * 1 + int.Parse(OwnCoin.text)).ToString();
+            OwnCoin.text = (int.Parse(BlueText.text)*30 + int.Parse(GreenText.text) * 15 + int.Parse(YellowText.text) * 5 + int.Parse(RedText.text) * 1 + int.Parse(OwnCoin.text)).ToString();
             BlueText.text = "0";
             GreenText.text = "0";
             YellowText.text = "0";
