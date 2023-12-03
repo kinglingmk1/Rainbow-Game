@@ -27,7 +27,10 @@ public class ThrowCamera : MonoBehaviour
     }
     void OnDestroy()
     {
-        coinImage.texture = null;
+        if(coinImage != null)
+        {
+            coinImage.texture = null;
+        }
     }
     // Update is called once per frame
     void Update()
