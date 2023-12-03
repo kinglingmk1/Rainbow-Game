@@ -4407,6 +4407,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.929
       objectReference: {fileID: 0}
+    - target: {fileID: 5568885573967584749, guid: 70096f4740dd4374e8ed2e0f8b18135a, type: 3}
+      propertyPath: m_TagString
+      value: Exit
+      objectReference: {fileID: 0}
     - target: {fileID: 6860310770485987927, guid: 70096f4740dd4374e8ed2e0f8b18135a, type: 3}
       propertyPath: m_Name
       value: ExitGame
@@ -4566,6 +4570,7 @@ GameObject:
   - component: {fileID: 1542761691}
   - component: {fileID: 1542761690}
   - component: {fileID: 1542761701}
+  - component: {fileID: 1542761702}
   m_Layer: 3
   m_Name: XR Origin
   m_TagString: Untagged
@@ -4773,6 +4778,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loginUI: {fileID: 874988123}
+--- !u!114 &1542761702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542761689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c7b1bc3b2750945af6ffce151d72f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1663838795
 GameObject:
   m_ObjectHideFlags: 0

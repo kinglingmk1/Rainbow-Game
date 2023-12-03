@@ -30,6 +30,7 @@ public class ExitGame : MonoBehaviour
     {
         if (col.gameObject.tag == "Exit")
         {
+            Debug.Log("Quit");
             Application.Quit();
         }
     }

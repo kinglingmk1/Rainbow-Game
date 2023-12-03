@@ -21,7 +21,7 @@ public class ToJP : MonoBehaviour
     {
         if (col.gameObject.tag == "Language")
         {
-            SceneManager.LoadScene("MainMenuJP");
+            SceneManager.LoadScene("MainManuJP");
         }
     }
 }
