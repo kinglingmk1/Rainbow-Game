@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Network;
 
 public class Login : MonoBehaviour
 {
@@ -21,13 +22,14 @@ public class Login : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Login")
+        if (other.gameObject.CompareTag("Login"))
         {
             if (loginUI.activeSelf == false)
             {
                 Debug.Log("Active Login");
                 loginUI.SetActive(true);
-            }else if (loginUI.activeSelf == true)
+                NetworkManager.Instance.RequestCode();
+            }else if (loginUI.activeSelf)
             {
                 Debug.Log("UnActive Login");
                 loginUI.SetActive(false);

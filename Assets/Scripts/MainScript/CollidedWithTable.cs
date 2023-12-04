@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Network;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
@@ -160,24 +161,28 @@ public class CollidedWithTable : MonoBehaviour
                 goalArray[0]++;
                 RedText.text = goalArray[0].ToString();
                 Jumping.SetActive(true);
+                NetworkManager.Instance.UploadData("red");
             }
             if (yellowHit)
             {
                 goalArray[1]++;
                 YellowText.text = goalArray[1].ToString();
                 Jumping.SetActive(true);
+                NetworkManager.Instance.UploadData("yellow");
             }
             if (greenHit)
             {
                 goalArray[2]++;
                 GreenText.text = goalArray[2].ToString();
                 Joyful.SetActive(true);
+                NetworkManager.Instance.UploadData("green");
             }
             if (blueHit)
             {
                 goalArray[3]++;
                 BlueText.text = goalArray[3].ToString();
                 Joyful.SetActive(true);
+                NetworkManager.Instance.UploadData("blue");
             }
             CoinIn.SetActive(true);
             CoinOut.SetActive(false);
@@ -195,6 +200,7 @@ public class CollidedWithTable : MonoBehaviour
             CoinIn.SetActive(false);
             HitBoundary.SetActive(true);
             Debug.Log("Out");
+            NetworkManager.Instance.UploadData("none");
         }
         count = 0;
         Debug.Log("Collision With Table");
