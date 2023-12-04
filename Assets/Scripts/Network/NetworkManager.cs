@@ -5,18 +5,29 @@ using Singleton;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Network
 {
     public class NetworkManager : Singleton<NetworkManager>
     {
+        [Header("Main Menu")]
         [SerializeField] private TextMeshProUGUI loginCodeDisplay;
         [SerializeField] private GameObject online;
         [SerializeField] private GameObject offline;
-
         [SerializeField] private TextMeshProUGUI username;
+        [SerializeField] private TextMeshProUGUI statistics;
+        
+        [Header("Main Game")] 
+        [SerializeField] private Text coinCountDisplay;
+        [SerializeField] private Text missDisplay;
+        [SerializeField] private Text redDisplay;
+        [SerializeField] private Text yellowDisplay;
+        [SerializeField] private Text greenDisplay;
+        [SerializeField] private Text blueDisplay;
 
-        public int uid;
+        public static int uid = -1;
         
         public int red;
         public int yellow;
@@ -30,6 +41,22 @@ namespace Network
         private const string APIURL = "https://www.hashtag071629.com";
         
         [CanBeNull] private string _loginCode;
+
+        private void UpdateStatisticsPage()
+        {
+            statistics.text = 
+                $"Red prize: {red}\nYellow prize: {yellow}\nGreen prize: {green}\nBlue prize: {blue}";
+        }
+
+        private void UpdateInGameStatistics()
+        {
+            coinCountDisplay.text = coinCount.ToString();
+            missDisplay.text = miss.ToString();
+            redDisplay.text = red.ToString();
+            yellowDisplay.text = yellow.ToString();
+            greenDisplay.text = green.ToString();
+            blueDisplay.text = blue.ToString();
+        }
 
         public void RequestCode()
         {
@@ -88,6 +115,7 @@ namespace Network
 
         public void FetchProfile()
         {
+            if (uid == -1) return;
             StartCoroutine(FetchProfileRequest());
         }
 
@@ -111,6 +139,11 @@ namespace Network
                 green = int.Parse(data[4]);
                 blue = int.Parse(data[5]);
                 miss = int.Parse(data[6]);
+                
+                if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainGame"))
+                    UpdateInGameStatistics();
+                else if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
+                    UpdateStatisticsPage();
 
                 yield break;
             }
@@ -146,6 +179,7 @@ namespace Network
 
         public void UploadData(string status)
         {
+            if (uid == -1) return;
             StartCoroutine(UploadDataRequest(status));
         }
 
@@ -163,6 +197,34 @@ namespace Network
             if (req.downloadHandler.text.Contains("SUCCESS"))
             {
                 StartCoroutine(FetchProfileRequest());
+            }
+        }
+
+        public void GetCoin()
+        {
+            if(uid == -1) return;
+            StartCoroutine(GetCoinRequest());
+        }
+
+        private IEnumerator GetCoinRequest()
+        {
+            var form = new WWWForm();
+            form.AddField("uidPost", uid);
+            
+            using var req = UnityWebRequest.Post($"{APIURL}/rainbowgame/coin", form);
+            yield return req.SendWebRequest();
+            
+            var result = req.downloadHandler.text;
+            
+            if (result.Contains("SUCCESS"))
+            {
+                coinCount = int.Parse(result.Split('_')[1]);
+                UpdateInGameStatistics();
+                CheckCoinUnderGround.Instance.resetCoin(true);
+            }
+            else
+            {
+                CheckCoinUnderGround.Instance.resetCoin(false);
             }
         }
     }

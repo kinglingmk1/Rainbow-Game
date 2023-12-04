@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetCion : MonoBehaviour
+public class ResetCion : MonoBehaviour /* <-!- Typo */
 {
     // Start is called before the first frame update
     GameObject coin;
-    Vector3 coinoriginalPos;
+    Vector3 coinoriginalPos; /* <-!- Naming Convention */
     void Start()
     {
         coin = this.gameObject;

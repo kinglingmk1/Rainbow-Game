@@ -2131,6 +2131,67 @@ Transform:
   m_Father: {fileID: 953812696}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &164790664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 164790666}
+  - component: {fileID: 164790665}
+  m_Layer: 0
+  m_Name: Network Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &164790665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164790664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e5aa8af8064d28882d61bab2539cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loginCodeDisplay: {fileID: 0}
+  online: {fileID: 0}
+  offline: {fileID: 0}
+  username: {fileID: 0}
+  statistics: {fileID: 0}
+  coinCountDisplay: {fileID: 1753331378}
+  missDisplay: {fileID: 2066629637}
+  redDisplay: {fileID: 180902614}
+  yellowDisplay: {fileID: 1220860324}
+  greenDisplay: {fileID: 448362677}
+  blueDisplay: {fileID: 725594119}
+  uid: -1
+  red: 0
+  yellow: 0
+  green: 0
+  blue: 0
+  miss: 0
+  coinCount: 0
+--- !u!4 &164790666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164790664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.926319, y: 4.828944, z: 28.79092}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180902612
 GameObject:
   m_ObjectHideFlags: 0
