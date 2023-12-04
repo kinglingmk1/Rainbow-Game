@@ -17,6 +17,8 @@ TagManager:
   - BuyCoin
   - BlackBoundary
   - Login
+  - BonusLevel
+  - BackToNormal
   layers:
   - Default
   - TransparentFX

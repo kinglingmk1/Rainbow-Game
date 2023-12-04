@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 public class CollidedWithTable : MonoBehaviour
 {
     public GameObject Coin, CoinIn, CoinOut, Idle, Joyful, Jumping, Dump, Hit,HitBoundary;
-    public Text CoinHitTableCount, OwnCoin,RedText,YellowText,GreenText,BlueText,HitTableText;
+    public Text CoinHitTableCount, OwnCoin,RedText,YellowText,GreenText,BlueText,HitTableText,enterLevel;
     public Rigidbody rb;
     Vector3 GetSpawnPosition, vel;
     bool tableHit, redHit, yellowHit, greenHit, blueHit, rainbowBoundaryHit;
@@ -44,6 +44,15 @@ public class CollidedWithTable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enterLevel.text.Equals("true"))
+        {
+            GetSpawnPosition = new Vector3(90, 6, -43);
+        }
+        if (!enterLevel.text.Equals("true"))
+        {
+            GetSpawnPosition = new Vector3(10.95f, 5.95f, -42.52f);
+        }
+
         audioListener.enabled = true;
         
         Vector3 gravity = gameGravity * scaleGravity * Vector3.up;
@@ -158,6 +167,13 @@ public class CollidedWithTable : MonoBehaviour
             Hit.SetActive(true);
             if (redHit)
             {
+                if (enterLevel.text.Equals("true"))
+                {
+                    OwnCoin.text = (int.Parse(OwnCoin.text) + 100).ToString();
+                    Coin.transform.position = new Vector3(10.95f, 5.95f, -42.52f);
+                    enterLevel.text = "false";
+                    Coin.SetActive(false);
+                }
                 goalArray[0]++;
                 RedText.text = goalArray[0].ToString();
                 Jumping.SetActive(true);
@@ -165,6 +181,13 @@ public class CollidedWithTable : MonoBehaviour
             }
             if (yellowHit)
             {
+                if (enterLevel.text.Equals("true"))
+                {
+                    OwnCoin.text = (int.Parse(OwnCoin.text) + 250).ToString();
+                    Coin.transform.position = new Vector3(10.95f, 5.95f, -42.52f);
+                    enterLevel.text = "false";
+                    Coin.SetActive(false);
+                }
                 goalArray[1]++;
                 YellowText.text = goalArray[1].ToString();
                 Jumping.SetActive(true);
@@ -172,6 +195,13 @@ public class CollidedWithTable : MonoBehaviour
             }
             if (greenHit)
             {
+                if (enterLevel.text.Equals("true"))
+                {
+                    OwnCoin.text = (int.Parse(OwnCoin.text) + 500).ToString();
+                    enterLevel.text = "false";
+                    Coin.transform.position = new Vector3(10.95f, 5.95f, -42.52f);
+                    Coin.SetActive(false);
+                }
                 goalArray[2]++;
                 GreenText.text = goalArray[2].ToString();
                 Joyful.SetActive(true);
@@ -179,6 +209,13 @@ public class CollidedWithTable : MonoBehaviour
             }
             if (blueHit)
             {
+                if (enterLevel.text.Equals("true"))
+                {
+                    OwnCoin.text = (int.Parse(OwnCoin.text) + 1000).ToString();
+                    enterLevel.text = "false";
+                    Coin.transform.position = new Vector3(10.95f, 5.95f, -42.52f);
+                    Coin.SetActive(false);
+                }
                 goalArray[3]++;
                 BlueText.text = goalArray[3].ToString();
                 Joyful.SetActive(true);
@@ -187,7 +224,6 @@ public class CollidedWithTable : MonoBehaviour
             CoinIn.SetActive(true);
             CoinOut.SetActive(false);
             Debug.Log("In");
-            
             //play particle
             system.Play();
         }
@@ -200,6 +236,7 @@ public class CollidedWithTable : MonoBehaviour
             CoinIn.SetActive(false);
             HitBoundary.SetActive(true);
             Debug.Log("Out");
+            enterLevel.text = "false";
             NetworkManager.Instance.UploadData("none");
         }
         count = 0;
